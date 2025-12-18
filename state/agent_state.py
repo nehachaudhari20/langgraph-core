@@ -10,3 +10,4 @@ class AgentState(TypedDict):
     plan: str
     answer: str
     verified: bool
+    attempts: int

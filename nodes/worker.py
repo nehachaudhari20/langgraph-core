@@ -6,9 +6,15 @@ def worker_node(state: AgentState) -> dict:
     Produces an answer based on the plan.
     """
     plan = state["plan"]
+    attempts = state.get("attempts", 0) + 1
 
-    answer = f"This is an answer generated using the plan: {plan}"
+    answer = f"""
+    Attempt {attempts}
+    Answer generated using the plan:
+    {plan}
+    """
 
     return {
-        "answer": answer
+        "answer": answer,
+        "attempts": attempts
     }
