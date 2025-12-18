@@ -3,11 +3,11 @@ from state.agent_state import AgentState
 
 def verifier_node(state: AgentState) -> dict:
     """
-    Verifies whether the answer is acceptable.
+    Simple verification logic.
     """
     answer = state["answer"]
 
-    verified = len(answer) > 40  # simple check
+    verified = len(answer) > 50
 
     return {
         "verified": verified
