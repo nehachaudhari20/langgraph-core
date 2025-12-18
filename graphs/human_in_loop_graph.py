@@ -5,6 +5,7 @@ from nodes.planner import planner_node
 from nodes.worker import worker_node
 from nodes.verifier import verifier_node
 from nodes.human import human_node
+from memory.checkpointing import get_checkpointer
 
 
 def build_human_in_loop_graph():
@@ -23,4 +24,7 @@ def build_human_in_loop_graph():
     graph.add_edge("verifier", "human")
     graph.add_edge("human", END)
 
-    return graph.compile()
+    # ✅ Compile with checkpointing
+    return graph.compile(
+        checkpointer=get_checkpointer()
+    )
